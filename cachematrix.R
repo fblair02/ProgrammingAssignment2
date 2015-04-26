@@ -6,14 +6,20 @@
 ## 
 
 makeCacheMatrix <- function(x = matrix()) {
+    # initialize m to NULL
     m <- NULL
+    # define the set function to initialize x and m with lexical scope
     set <- function(y) {
       x <<- y
       m <<- NULL
     }
+    # define get function to return x
     get <- function() x
+    # define a function to solve for inverse and assign to m
     setinverse <- function(solve) m <<- solve
+    # define a function to return the inverse solution
     getinverse <- function() m
+    # create the reference list of functions
     list(set = set, get = get,
          setinverse = setinverse,
          getinverse = getinverse)
